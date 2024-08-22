@@ -1,0 +1,25 @@
+<p class="center" *ngIf="annualData.length === 0; else showTable">
+  Please enter some values and press "Calculate".
+</p>
+<ng-template #showTable>
+  <table>
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Investment Value</th>
+        <th>Interest (Year)</th>
+        <th>Total Interest</th>
+        <th>Invested Capital</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of annualData">
+        <td>{{ row.year }}</td>
+        <td>{{ row.valueEndOfYear | currency }}</td>
+        <td>{{ row.interest | currency }}</td>
+        <td>{{ row.totalInterest | currency }}</td>
+        <td>{{ row.totalAmountInvested | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
